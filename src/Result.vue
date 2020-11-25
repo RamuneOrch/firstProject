@@ -51,7 +51,7 @@
           <div class="p-3">
             <p class="m-auto text-center" style="color : #696969; font-size : 22px; font-family :  'Noto Sans KR',sans serif; line-height: 1.5;">
               지금  <strong>피부컨설팅:피팅</strong>에서<br>
-              <strong>휴엔맘 크림</strong> 경험하고<br>
+              <strong>{{ type[0].tip_info }}</strong> 경험하고<br>
               리얼한 후기를 남겨주세요!
             </p>
           </div>
@@ -79,7 +79,10 @@
         <div class="fixed-bottom">
           <div class="d-flex flex-row p-3 pl-4 pr-4" style="max-width : 600px; margin : auto; background-color :#6e7da0">
             <div class="text-center rounded-pill" style="width : 100%; border : 2px solid white; cursor : pointer" @click="playStore(1)">
-                <p class="m-0 p-3" style="font-weight : 500;color : white; font-size : 24px; font-family : 'Noto Sans KR',sans serif; ">휴엔맘 크림 무료 체험</p>
+                <p class="m-0 p-2" style="font-weight : 500;color : white; font-size : 17px; font-family : 'Noto Sans KR',sans serif; ">
+                  {{ this.type[0].tip_info }} <br>
+                  무료 샘플 신청하기
+                </p>
             </div>
           </div>
         </div>
@@ -112,6 +115,7 @@ export default {
         })
         .then(res => {
           this.type = res.data.list
+          // console.log(this.type);
         })
 
       if(this.result === "undefined" || this.result === null) this.page = 2
@@ -137,14 +141,21 @@ export default {
 
       else if(this.result === "DRNW"){this.idx = 7}
 
-      else if(this.result === "DSPT"){this.idx = 8}
-      else if(this.result === "DSPT"){this.idx = 9}
-      else if(this.result === "DSPT"){this.idx = 10}
-      else if(this.result === "DSPT"){this.idx = 11}
-      else if(this.result === "DSPT"){this.idx = 12}
-      else if(this.result === "DSPT"){this.idx = 13}
-      else if(this.result === "DSPT"){this.idx = 14}
-      else if(this.result === "DSPT"){this.idx = 15}
+      else if(this.result === "OSPT"){this.idx = 8}
+
+      else if(this.result === "OSNT"){this.idx = 9}
+
+      else if(this.result === "OSPW"){this.idx = 10}
+
+      else if(this.result === "OSNW"){this.idx = 11}
+
+      else if(this.result === "ORPT"){this.idx = 12}
+
+      else if(this.result === "ORNT"){this.idx = 13}
+
+      else if(this.result === "ORPW"){this.idx = 14}
+
+      else if(this.result === "ORNW"){this.idx = 15}
     }
   },
   data(){
@@ -159,20 +170,8 @@ export default {
       restart : 1,
       count : 0,
       type: [],
-      tip : [],
+      tip : ``,
       result : this.query,
-      feedSettings: {
-        objectType: 'feed',
-        content: {
-          title: '나랑 잘 맞는 화장품 찾기',
-          imageUrl:
-            'https://ramuneorch.github.io/firstProject/img/2.9916156e.png',
-          link: {
-            mobileWebUrl: 'https://developers.kakao.com',
-            webUrl: 'https://developers.kakao.com',
-          },
-        },
-      }
     }
   },
   props: {
@@ -212,11 +211,22 @@ export default {
         })
       }
       
-      window.Kakao.Link.sendDefault(this.feedSettings)
+      window.Kakao.Link.sendDefault({
+        objectType: 'feed',
+        content: {
+          title: '나랑 잘 맞는 화장품 찾기',
+          description : `당신은 ${this.result} 유형입니다!`,
+          imageUrl:` ${this.type[0].image}`,
+          link: {
+            mobileWebUrl: 'https://developers.kakao.com',
+            webUrl: 'https://developers.kakao.com',
+          },
+        },
+      })
     },
     clip(){
         var dummy = document.createElement('input'),
-          text = window.location.href;
+          text = "http://mbtiweb.s3-website.ap-northeast-2.amazonaws.com/";
         document.body.appendChild(dummy);
         dummy.value = text;
         dummy.select();
@@ -250,7 +260,7 @@ export default {
           })
       }
       setTimeout(() => {
-        window.open(`https://bit.ly/3cp1b6g`,"_page")
+        window.open(`https://bit.ly/2UVlroT`,"_page")
       },100)
     },
     
@@ -259,6 +269,7 @@ export default {
 </script>
 
 <style scoped>
+  
   li{
     margin-bottom : 14px;
     font-size : 12px;

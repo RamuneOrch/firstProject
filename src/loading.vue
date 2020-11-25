@@ -9,8 +9,11 @@
             >
                 
     </loading>
-    <img src="./img/Spin.gif" alt="" width="100px;" 
-        style="position: absolute; top:45% ;left: 50%; transform:translateX(-50%);">
+    <div style="text-align : center; position: absolute; top:40% ;left: 50%; transform:translateX(-50%);">
+        <img src="./img/Spin.gif" alt="" width="100px;" style="">
+        <p class="mt-4 pl-3">나랑 잘 맞는 화장품 분석중...</p>
+    </div>
+    
 
     <!-- <button @click="doAjax">
         1
@@ -63,6 +66,11 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+    p{
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size : 20px;
+        font-weight : bold;
+        color : #6e7da0;
+    }
 </style>

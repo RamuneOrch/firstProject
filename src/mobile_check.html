@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>
+            피팅 설치    
+        </title>
+            <script type ="text/javascript">
+            var varUA = navigator.userAgent.toLowerCase(); //userAgent 값 얻기
+ 
+            if (varUA.match('android') != null) { 
+                //안드로이드 일때 처리
+
+                    var index = varUA.indexOf('android');
+                    window.location.href = 'market://details?id=com.jjang.bangpan2';
+                    
+                    /*  안드로이드 분기
+                    // alert(and_v);
+
+                    var and_v = eval(varUA.substr(index+8,1));
+                    //OS가 6.0 이상                    
+                    if(and_v >=6)
+                    {
+                        window.location.href = 'market://details?id=com.jjang.BangPan';
+                    }
+                    //OS가 5.0 이하
+                    else 
+                    {  
+                        window.location.href = 'market://details?id=com.jjang.BangP';
+                    }
+                    */
+                
+            } else if (varUA.indexOf("iphone")>-1||varUA.indexOf("ipad")>-1||varUA.indexOf("ipod")>-1) { 
+                //IOS 일때 처리
+                window.location.href = 'https://apps.apple.com/kr/app/%ED%94%BC%ED%8C%85-%ED%94%BC%EB%B6%80%EC%BB%A8%EC%84%A4%ED%8C%85-%ED%99%94%EC%9E%A5%ED%92%88-%EB%AC%B4%EB%A3%8C-%EC%83%98%ED%94%8C%EC%B2%B4%ED%97%98/id1518586200';
+                // window.location.href = 'https://apps.apple.com/kr/app/%ED%94%BC%ED%8C%85-%ED%94%BC%EB%B6%80%EC%BB%A8%EC%84%A4%ED%8C%85-%ED%99%94%EC%9E%A5%ED%92%88-%EB%AC%B4%EB%A3%8C-%EC%83%98%ED%94%8C%EC%B2%B4%ED%97%98/id1518586200';
+                // alert('아이폰은 개발 중 입니다.\n\n피팅 홈페이지로 이동합니다.');
+                // window.location.href = 'https://comjjang.com';
+
+            } else {
+            
+                //아이폰, 안드로이드 외 처리
+                // alert('pc용은 개발중 입니다.\n\n피팅 홈페이지로 이동합니다.');
+                window.location.href = 'https://apps.apple.com/kr/app/%ED%94%BC%ED%8C%85-%ED%94%BC%EB%B6%80%EC%BB%A8%EC%84%A4%ED%8C%85-%ED%99%94%EC%9E%A5%ED%92%88-%EB%AC%B4%EB%A3%8C-%EC%83%98%ED%94%8C%EC%B2%B4%ED%97%98/id1518586200http://fitting.woobi.co.kr/';
+            }
+            </script>
+
+    </head>
+    <body>
+    </body>
+</html>

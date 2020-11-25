@@ -9,10 +9,10 @@
         <p class="float-right m-0 mr-1 pt-1" style="font-size : 20px; color :#6e7da0; font-weight : 500; ">
           {{ this.countt === 12 ? countt : countt+1 }}/12
         </p>
-        <input type="range" min="1" max="13" :value="countt+2" class="" style=""
+        <input type="range" min="1" max="13" :value="countt+2" class="" style="" disabled
         >
       </div>
-      <Hooper ref="carousel" class="" style="height : 57%;" :transition="700" :mouseDrag="false" :wheelControl="false" :keysControl="false" :touchDrag="false">
+      <Hooper ref="carousel" class="" style="height : 67%;" :transition="700" :mouseDrag="false" :wheelControl="false" :keysControl="false" :touchDrag="false">
             <Slide v-for="(people) in rest"
                   :key="people.id" class="w-100">
               <div class="w-100">
@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="d-flex flex-column text-center m-auto pt-3" style="width : 80%;">
-                  <button @click="testButton1(0)"
+                  <button @click="testButton1(1)"
                     class="mb-4"
                     :disabled="isDisabled"
                   >
@@ -31,7 +31,7 @@
                         {{ people.btn1 }}
                       </p>
                   </button>
-                  <button @click="testButton2(1)"
+                  <button @click="testButton2(0)"
                     class=""
                     :disabled="isDisabled"
                   >

@@ -114,7 +114,7 @@ export default {
         font-family:'Noto Sans KR', sans-serif;
       }
       .main{
-        background-image: url("./img/bg2.png");
+        background-image: url("./img/F.png");
         background-position : center bottom;
         background-repeat: no-repeat;
         background-size: 100%;
